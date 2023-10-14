@@ -108,7 +108,7 @@ export const App = () => {
               onChange={handleChangeAmount}
             />
             <div className="radio-design"></div>
-            <div className="label-text">1 Credit at ₹39</div>
+            <div className="label-text">1 Quiz at ₹39</div>
           </label>
           <label className="label">
             <input
@@ -120,7 +120,9 @@ export const App = () => {
               onChange={handleChangeAmount}
             />
             <div className="radio-design"></div>
-            <div className="label-text">4 Credits at ₹119</div>
+            <div className="label-text">
+              4 Quizzes at ₹119 <br /> (₹29 per quiz)
+            </div>
           </label>
           <label className="label">
             <input
@@ -132,7 +134,9 @@ export const App = () => {
               onChange={handleChangeAmount}
             />
             <div className="radio-design"></div>
-            <div className="label-text">52 Credits at ₹999</div>
+            <div className="label-text">
+              52 Quizzes at ₹999 <br /> (₹19 per quiz)
+            </div>
           </label>
           <label className="label">
             <input
@@ -144,7 +148,9 @@ export const App = () => {
               onChange={handleChangeAmount}
             />
             <div className="radio-design"></div>
-            <div className="label-text">200 Credits at ₹1999</div>
+            <div className="label-text">
+              200 Quizzes at ₹1999 <br /> (₹9 per quiz)
+            </div>
           </label>
           <button
             style={{ marginTop: "20px" }}
