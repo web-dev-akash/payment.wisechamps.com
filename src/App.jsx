@@ -2,9 +2,11 @@ import { useState } from "react";
 import { RaceBy } from "@uiball/loaders";
 import axios from "axios";
 import "./App.css";
+import { useEffect } from "react";
 
 export const App = () => {
-  const [email, setEmail] = useState("");
+  const query = new URLSearchParams(window.location.search);
+  const [email, setEmail] = useState(query.get("email"));
   const [mode, setMode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -14,6 +16,7 @@ export const App = () => {
     /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
     "gm"
   );
+
   const handleChange = (e) => {
     e.preventDefault();
     setEmail(e.target.value);
@@ -32,17 +35,9 @@ export const App = () => {
     }
     try {
       setLoading(true);
-      await axios.post(
-        `https://script.google.com/macros/s/AKfycbzfelbwgNpG1v4zY8t-avVggcgH3K_7yE-r7B7eTWF45lt1q_guT4qaQTaEiYccHy-b/exec?email=${emailParam}&type=payment&description=EnteredEmail`
-      );
       const url = `https://backend.wisechamps.app/user`;
       const res = await axios.post(url, { email: emailParam });
       const mode = res.data.mode;
-      const status = res.data.status;
-      console.log(status);
-      await axios.post(
-        `https://script.google.com/macros/s/AKfycbzfelbwgNpG1v4zY8t-avVggcgH3K_7yE-r7B7eTWF45lt1q_guT4qaQTaEiYccHy-b/exec?email=${emailParam}&type=payment&description=${mode}-${status}`
-      );
       setMode(mode);
       setLoading(false);
     } catch (error) {
@@ -55,14 +50,12 @@ export const App = () => {
   const handlePayment = async (emailParam, amountParam) => {
     try {
       setLoading(true);
-      await axios.post(
-        `https://script.google.com/macros/s/AKfycbzfelbwgNpG1v4zY8t-avVggcgH3K_7yE-r7B7eTWF45lt1q_guT4qaQTaEiYccHy-b/exec?email=${emailParam}&type=payment&description=AmountSelected ${amountParam}`
-      );
       const url = `https://backend.wisechamps.app/payment_links`;
       const res = await axios.post(url, {
         email: emailParam,
         amount: amountParam,
       });
+      setMode("payment");
       const paymentLink = res.data.short_url;
       window.location.assign(paymentLink);
       setLoading(false);
@@ -73,6 +66,12 @@ export const App = () => {
     }
   };
 
+  useEffect(() => {
+    if (email) {
+      handleClick(email);
+    }
+  }, []);
+
   if (loading) {
     return (
       <div
@@ -81,8 +80,28 @@ export const App = () => {
         }}
       >
         <p style={{ fontSize: "18px" }}>
-          {mode !== "user" ? "Loading.." : "Generating Your Payment Link.."}
+          {mode !== "user"
+            ? "Searching best offers for you.."
+            : "Generating Your Payment Link.."}
         </p>
+        <RaceBy
+          size={300}
+          lineWeight={20}
+          speed={1.4}
+          color="rgba(129, 140, 248)"
+        />
+      </div>
+    );
+  }
+
+  if (mode === "payment") {
+    return (
+      <div
+        style={{
+          overflow: "hidden",
+        }}
+      >
+        <p style={{ fontSize: "18px" }}>Generating Your Payment Link..</p>
         <RaceBy
           size={300}
           lineWeight={20}
@@ -190,7 +209,7 @@ export const App = () => {
               setMode("");
             }}
           >
-            Know Your Email
+            Get Your Registered Email
           </button>
         </div>
       </div>
