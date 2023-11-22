@@ -35,7 +35,7 @@ export const App = () => {
     }
     try {
       setLoading(true);
-      const url = `https://backend.wisechamps.app/user`;
+      const url = `https://backend.wisechamps.com/user`;
       const res = await axios.post(url, { email: emailParam });
       const mode = res.data.mode;
       setMode(mode);
@@ -50,7 +50,7 @@ export const App = () => {
   const handlePayment = async (emailParam, amountParam) => {
     try {
       setLoading(true);
-      const url = `https://backend.wisechamps.app/payment_links`;
+      const url = `https://backend.wisechamps.com/payment_links`;
       const res = await axios.post(url, {
         email: emailParam,
         amount: amountParam,
