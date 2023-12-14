@@ -118,19 +118,6 @@ export const App = () => {
         <div className="radio-input-wrapper">
           <label className="label">
             <input
-              value="39"
-              name="value-radio"
-              id="value-2"
-              className="radio-input"
-              type="radio"
-              defaultChecked
-              onChange={handleChangeAmount}
-            />
-            <div className="radio-design"></div>
-            <div className="label-text">1 Quiz at ₹39</div>
-          </label>
-          <label className="label">
-            <input
               value="119"
               name="value-radio"
               id="value-3"
