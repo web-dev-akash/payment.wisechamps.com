@@ -10,7 +10,7 @@ export const App = () => {
   const [mode, setMode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [amount, setAmount] = useState(39);
+  const [amount, setAmount] = useState(119);
 
   const emailRegex = new RegExp(
     /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
@@ -128,6 +128,20 @@ export const App = () => {
             <div className="radio-design"></div>
             <div className="label-text">
               4 Quizzes at ₹119 <br /> (₹29 per quiz)
+            </div>
+          </label>
+          <label className="label">
+            <input
+              value="499"
+              name="value-radio"
+              id="value-3"
+              className="radio-input"
+              type="radio"
+              onChange={handleChangeAmount}
+            />
+            <div className="radio-design"></div>
+            <div className="label-text">
+              33 Quizzes at ₹499 <br /> (₹15 per quiz)
             </div>
           </label>
           <label className="label">
