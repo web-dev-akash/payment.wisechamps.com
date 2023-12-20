@@ -127,7 +127,7 @@ export const App = () => {
             />
             <div className="radio-design"></div>
             <div className="label-text">
-              4 Quizzes at ₹119 <br /> (₹29 per quiz)
+              4 Quizzes at ₹119 <br /> (₹30 per quiz)
             </div>
           </label>
           <label className="label">
@@ -141,21 +141,7 @@ export const App = () => {
             />
             <div className="radio-design"></div>
             <div className="label-text">
-              33 Quizzes at ₹499 <br /> (₹15 per quiz)
-            </div>
-          </label>
-          <label className="label">
-            <input
-              value="999"
-              name="value-radio"
-              id="value-4"
-              className="radio-input"
-              type="radio"
-              onChange={handleChangeAmount}
-            />
-            <div className="radio-design"></div>
-            <div className="label-text">
-              52 Quizzes at ₹999 <br /> (₹19 per quiz)
+              20 Quizzes at ₹499 <br /> (₹25 per quiz)
             </div>
           </label>
           <label className="label">
@@ -169,7 +155,7 @@ export const App = () => {
             />
             <div className="radio-design"></div>
             <div className="label-text">
-              200 Quizzes at ₹1999 <br /> (₹9 per quiz)
+              200 Quizzes at ₹1999 <br /> (₹10 per quiz)
             </div>
           </label>
           <button
