@@ -1,6 +1,82 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+}
+@media screen and (max-width: 786px) {
+  .App {
+    height: 85vh;
+  }
+}
+.main {
+  text-align: left;
+  max-width: 320px;
+  width: 320px;
+  padding: 2rem 2rem 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.main .input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 2px solid rgba(129, 140, 248);
+  outline: none;
+  background-color: #f5faff;
+  color: #0d0c22;
+  transition: 0.5s ease;
+  margin-bottom: 5px;
+}
+.main .input::placeholder {
+  color: #8698b1;
+}
+.main .input:focus,
+.main .input:hover {
+  outline: none;
+  border-color: rgba(129, 140, 248);
+  background-color: #fff;
+  box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+}
+.main .form p {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 10px;
+}
+
+#submit-btn {
+  width: 100%;
+  border: 2px solid transparent;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(129, 140, 248);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+#submit-btn:hover,
+#submit-btn:focus {
+  outline: none;
+  color: black;
+  border-color: rgba(129, 140, 248);
+  box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+  background-color: #f5faff;
+}
+
+.email-not-found > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.email-not-found > div > button {
+  padding: 10px 15px !important;
+  font-size: 15px !important;
+  width: 100%;
 }
