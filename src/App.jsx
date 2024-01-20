@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { RaceBy } from "@uiball/loaders";
 import axios from "axios";
 import "./App.css";
 import "animate.css";
+import voucher from "./assets/voucher.PNG";
 import { useEffect } from "react";
 import { Header } from "./components/Header";
 import {
@@ -15,6 +16,7 @@ import {
   Button,
   Code,
   Heading,
+  Image,
   List,
   ListItem,
   Tag,
@@ -30,6 +32,7 @@ export const App = () => {
   const [error, setError] = useState(false);
   const [amount, setAmount] = useState(0);
   const [user, setUser] = useState({});
+  const ref = useRef(null);
 
   const emailRegex = new RegExp(
     /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
@@ -86,6 +89,10 @@ export const App = () => {
       setError(true);
       console.log("error is ------------", error);
     }
+  };
+
+  const handleBonusBtnClick = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -159,8 +166,7 @@ export const App = () => {
           padding={["5rem 0 1rem 0", "5rem 0 1rem 0", "5rem 0 1rem 0", "0"]}
         >
           <Box
-            // border={"5px solid red"}
-            margin={["0px", "0px", "60px 0 0 0", "75px 0 0 0", "75px 0 0 0"]}
+            margin={["0px", "0px", "60px 0 0 0", "75px 0 0 0"]}
             width={"95%"}
             height={"auto"}
             display={"flex"}
@@ -201,7 +207,18 @@ export const App = () => {
             </Tag>
           </Box>
           <Box
-            margin={"30px auto"}
+            marginTop={"20px"}
+            margin={"unset auto"}
+            width={["90%", "90%", "100%", "100%"]}
+            textAlign={"center"}
+          >
+            <Tag colorScheme="red" textAlign={"center"}>
+              Important Note: Your quiz balance is deducted only if you attend a
+              quiz and it is not deducted if you skip any sessions.
+            </Tag>
+          </Box>
+          <Box
+            margin={"20px auto"}
             width={"95%"}
             display={"grid"}
             placeItems={"center"}
@@ -228,16 +245,18 @@ export const App = () => {
                 marginBottom={["0px", "0px", "10px", "10px"]}
                 display={"flex"}
                 justifyContent={"space-between"}
-                alignItems={"center"}
+                alignItems={["flex-start", "flex-start", "center", "center"]}
+                flexDir={["column", "column", "row", "row"]}
               >
                 <Text
                   fontSize={["18px", "18px", "18px", "20px"]}
                   fontWeight={700}
                 >
-                  Free Quiz Balance
+                  Add Free Quiz Balance
                 </Text>
                 <Tag
                   colorScheme="whatsapp"
+                  margin={["5px 0", "5px 0", "", ""]}
                   size={["sm", "sm", "md", "sm", "md"]}
                 >
                   Most Popular
@@ -255,8 +274,9 @@ export const App = () => {
               </Text>
               <Text
                 fontSize={["12px", "12px", "15px", "12px", "15px"]}
-                marginBottom={["10px", "10px", "25px", "25px"]}
+                marginBottom={["10px", "10px", "0", "0"]}
                 color={"#59626F"}
+                fontWeight={"bold"}
               >
                 Exciting News! No need to pay at all! Attend sessions for free!
                 How?
@@ -267,7 +287,6 @@ export const App = () => {
                 border={"1px solid #a4b5fc"}
                 borderRadius={"10px"}
                 outline={"none"}
-                marginBottom={["15px", "15px", "35px", "35px"]}
               >
                 <AccordionItem border={"none"} borderRadius={"10px"}>
                   <h2
@@ -300,6 +319,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         Call your cousin or friend and ask them to enjoy free
@@ -312,6 +332,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         Send them the joining link by clicking on the button
@@ -324,6 +345,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         As soon as he/she joins, you both get 5 quiz balance
@@ -336,14 +358,34 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />
-                        <b>Validity : 3 Years</b>
+                        <b>
+                          Validity : Use this quiz balance anytime in the next 3
+                          years
+                        </b>
                       </ListItem>
                     </List>
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
+              <Box>
+                <Button
+                  border={"none"}
+                  background={"none"}
+                  color="#4e47e5"
+                  padding={0}
+                  width={"unset"}
+                  height={"unset"}
+                  margin={"15px 0"}
+                  fontSize={["12px", "12px", "14px", "12px", "14px"]}
+                  textDecoration={"underline"}
+                  onClick={handleBonusBtnClick}
+                >
+                  Know more about Bonus
+                </Button>
+              </Box>
               <Button
                 width={"100%"}
                 background={"#4E47E5"}
@@ -351,7 +393,7 @@ export const App = () => {
                 border={"2px solid transparent"}
                 transition={"0.4s ease"}
                 onClick={() =>
-                  (window.location.href = `https://referral.wisechamps.com/?email=${email}`)
+                  (window.location.href = `https://wa.me?text=Hi!%20I%20am%20learning%20a%20lot%20through%20Wisechamps%20Final%20Exam%20Practice%20Sessions.%20These%20quizzes%20are%20FUN%20%26%20INTERESTING%20way%20of%20LEARNING%20regularly.%20%0A%0AI%20am%20sure%20this%20time%20I%20will%20Ace%20my%20final%20Math%20and%20Science%20Exams.%0A%0AWinners%20also%20get%20gifts!%20So%20Don%27t%20Miss%20out...%0A%0AClick%20here%20to%20register%20your%20name%20and%20participate%20in%20free%20sessions%20%F0%9F%91%87%0Ahttps%3A%2F%2Freferral.wisechamps.com%3FrefereeId%3D${user.phone}%20%0A%0ASee%20you%20there%20%F0%9F%92%A1`)
                 }
                 _hover={{
                   outline: "none",
@@ -362,7 +404,7 @@ export const App = () => {
                 }}
                 marginBottom={["0", "0", "25px", "25px"]}
               >
-                Invite a Cousin
+                Invite a Cousin / Friend
               </Button>
 
               <List display={["none", "none", "block", "block"]}>
@@ -373,6 +415,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> Call
                   your cousin or friend and ask them to enjoy free final exam
@@ -385,6 +428,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> Send
                   them the joining link by clicking on the button.
@@ -396,6 +440,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> As
                   soon as he/she joins, you both get 5 quiz balance free!
@@ -407,9 +452,12 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />
-                  <b>Validity : 3 Years</b>
+                  <b>
+                    Validity : Use this quiz balance anytime in the next 3 years
+                  </b>
                 </ListItem>
               </List>
             </Box>
@@ -445,6 +493,7 @@ export const App = () => {
                 fontSize={["12px", "12px", "15px", "12px", "15px"]}
                 marginBottom={["10px", "10px", "25px", "25px"]}
                 color={"#59626F"}
+                fontWeight={"bold"}
               >
                 Click on the button below to Pay ₹119 for 4 quizzes{" "}
                 <b>(Only ₹30 per quiz)</b>
@@ -488,6 +537,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         <b>4 Quizzes (₹30 per quiz)</b>
@@ -499,31 +549,13 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        Academic Advancement
-                      </ListItem>
-                      <ListItem
-                        display={"flex"}
-                        alignItems={"center"}
-                        gap={5}
-                        marginBottom={"10px"}
-                        fontSize={["12px", "12px", "14px", "14px"]}
-                        color={"#59626F"}
-                      >
-                        <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        Committed to Success
-                      </ListItem>
-                      <ListItem
-                        display={"flex"}
-                        alignItems={"center"}
-                        gap={5}
-                        marginBottom={"10px"}
-                        fontSize={["12px", "12px", "14px", "14px"]}
-                        color={"#59626F"}
-                      >
-                        <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        <b>Validity : 30 Days</b>
+                        <b>
+                          Validity : Use this quiz balance anytime in the next
+                          30 Days
+                        </b>
                       </ListItem>
                     </List>
                   </AccordionPanel>
@@ -557,10 +589,12 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                   <b>4 Quizzes (₹30 per quiz)</b>
                 </ListItem>
+
                 <ListItem
                   display={"flex"}
                   alignItems={"center"}
@@ -568,31 +602,12 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  Academic Advancement
-                </ListItem>
-                <ListItem
-                  display={"flex"}
-                  alignItems={"center"}
-                  gap={5}
-                  marginBottom={"10px"}
-                  fontSize={["12px", "12px", "14px", "14px"]}
-                  color={"#59626F"}
-                >
-                  <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  Committed to Success
-                </ListItem>
-                <ListItem
-                  display={"flex"}
-                  alignItems={"center"}
-                  gap={5}
-                  marginBottom={"10px"}
-                  fontSize={["12px", "12px", "14px", "14px"]}
-                  color={"#59626F"}
-                >
-                  <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  <b>Validity : 30 Days</b>
+                  <b>
+                    Validity : Use this quiz balance anytime in the next 30 Days
+                  </b>
                 </ListItem>
               </List>
             </Box>
@@ -628,6 +643,7 @@ export const App = () => {
                 fontSize={["12px", "12px", "15px", "12px", "15px"]}
                 marginBottom={["10px", "10px", "25px", "25px"]}
                 color={"#59626F"}
+                fontWeight={"bold"}
               >
                 Click on the button below to Pay ₹499 for 20 quizzes{" "}
                 <b>(Only ₹25 per quiz)</b> and stand a chance to participate in
@@ -673,6 +689,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         <b>20 Quizzes (₹25 per quiz)</b>
@@ -684,6 +701,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         Stand a chance to participate in our Quaterly contests
@@ -696,9 +714,13 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        <b>Validity : 6 months</b>
+                        <b>
+                          Validity : Use this quiz balance anytime in the next 6
+                          months
+                        </b>
                       </ListItem>
                     </List>
                   </AccordionPanel>
@@ -732,6 +754,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                   <b>20 Quizzes (₹25 per quiz)</b>
@@ -743,6 +766,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> Stand
                   a chance to participate in our Quaterly contests and win
@@ -755,9 +779,13 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  <b>Validity : 6 months</b>
+                  <b>
+                    Validity : Use this quiz balance anytime in the next 6
+                    months
+                  </b>
                 </ListItem>
               </List>
             </Box>
@@ -807,10 +835,21 @@ export const App = () => {
                 fontSize={["12px", "12px", "15px", "12px", "15px"]}
                 marginBottom={["10px", "10px", "25px", "25px"]}
                 color={"#59626F"}
+                fontWeight={"bold"}
               >
                 Click on the button below to Pay ₹1999 for 200 quizzes{" "}
-                <b>(Only ₹10 per quiz)</b> and stand a chance to participate in
-                our annual contests and win Mega Prizes
+                <Text
+                  as={"span"}
+                  background={"#E9D8FD"}
+                  padding={"2px 5px"}
+                  borderRadius={"5px"}
+                  color={"#58478A"}
+                  whiteSpace={"nowrap"}
+                >
+                  (Only ₹10 per quiz)
+                </Text>{" "}
+                and stand a chance to participate in our annual contests and win
+                Mega Prizes
               </Text>
 
               <Accordion
@@ -852,6 +891,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         <b>200 Quizzes (₹10 per quiz)</b>
@@ -863,6 +903,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         Get a chance to participate in our annual contests
@@ -874,6 +915,7 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         Win Mega Prizes
@@ -885,9 +927,13 @@ export const App = () => {
                         marginBottom={"10px"}
                         fontSize={["12px", "12px", "14px", "14px"]}
                         color={"#59626F"}
+                        fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        <b>Validity : 3 Years</b>
+                        <b>
+                          Validity : Use this quiz balance anytime in the next 3
+                          years
+                        </b>
                       </ListItem>
                     </List>
                   </AccordionPanel>
@@ -921,6 +967,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                   <b>200 Quizzes (₹10 per quiz)</b>
@@ -932,6 +979,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> Get a
                   chance to participate in our annual contests
@@ -943,6 +991,7 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> Win
                   Mega Prizes
@@ -954,23 +1003,77 @@ export const App = () => {
                   marginBottom={"10px"}
                   fontSize={["12px", "12px", "14px", "14px"]}
                   color={"#59626F"}
+                  fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  <b>Validity : 3 Years</b>
+                  <b>
+                    Validity : Use this quiz balance anytime in the next 3 years
+                  </b>
                 </ListItem>
               </List>
             </Box>
           </Box>
+
+          {/* ----------------------------Bonus---------------------------- */}
+
           <Box
             marginBottom={"20px"}
-            margin={"unset auto"}
-            width={["90%", "90%", "100%", "100%"]}
             textAlign={"center"}
+            ref={ref}
+            border={"1px solid #ccc"}
+            width={["95%", "95%", "40%", "40%"]}
+            minHeight={["auto", "auto", "400px", "400px"]}
+            padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
+            borderRadius={"20px"}
+            transition={"0.5s ease"}
+            _hover={{
+              border: "1px solid #4F47E4",
+            }}
           >
-            <Tag colorScheme="purple" textAlign={"center"}>
-              Important Note: Your quiz balance is deducted only if you attend a
-              quiz and it is not deducted if you skip any sessions.
-            </Tag>
+            <Text fontSize={["18px", "18px", "18px", "20px"]} fontWeight={700}>
+              Bonus
+            </Text>
+
+            <Text
+              fontSize={["12px", "12px", "15px", "14px", "15px"]}
+              margin={"15px 0"}
+              color={"#59626F"}
+              fontWeight={"bold"}
+            >
+              When your friend or cousin that you have invited attends 5 free
+              sessions with us. You are also gifted a Rs 300 Amazon Voucher from
+              Wisechamps.
+            </Text>
+            <Image
+              maxWidth={"400px"}
+              width={"100%"}
+              margin={"10px auto"}
+              src={voucher}
+              alt="300 Amazon Voucher"
+              border={"1px solid #ccc"}
+              borderRadius={"10px"}
+            />
+            <Button
+              margin={"10px auto"}
+              width={["100%", "100%", "50%", "50%"]}
+              background={"#4E47E5"}
+              color={"white"}
+              border={"2px solid transparent"}
+              transition={"0.4s ease"}
+              onClick={() =>
+                (window.location.href = `https://wa.me?text=Hi!%20I%20am%20learning%20a%20lot%20through%20Wisechamps%20Final%20Exam%20Practice%20Sessions.%20These%20quizzes%20are%20FUN%20%26%20INTERESTING%20way%20of%20LEARNING%20regularly.%20%0A%0AI%20am%20sure%20this%20time%20I%20will%20Ace%20my%20final%20Math%20and%20Science%20Exams.%0A%0AWinners%20also%20get%20gifts!%20So%20Don%27t%20Miss%20out...%0A%0AClick%20here%20to%20register%20your%20name%20and%20participate%20in%20free%20sessions%20%F0%9F%91%87%0Ahttps%3A%2F%2Freferral.wisechamps.com%3FrefereeId%3D${user.phone}%20%0A%0ASee%20you%20there%20%F0%9F%92%A1`)
+              }
+              _hover={{
+                outline: "none",
+                background: "white",
+                color: "#000",
+                border: "2px solid #4E47E5",
+                boxShadow: "0 0 0 5px rgb(78 71 229 / 30%)",
+              }}
+              marginBottom={["0", "0", "25px", "25px"]}
+            >
+              Invite a Cousin / Friend
+            </Button>
           </Box>
         </Box>
       </>
