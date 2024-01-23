@@ -35,7 +35,7 @@ import { CheckCircleIcon } from "@chakra-ui/icons";
 export const App = () => {
   const query = new URLSearchParams(window.location.search);
   const [email, setEmail] = useState(query.get("email"));
-  const [mode, setMode] = useState("user");
+  const [mode, setMode] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [amount, setAmount] = useState(0);
