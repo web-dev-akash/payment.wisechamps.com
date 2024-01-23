@@ -27,7 +27,7 @@ import { CheckCircleIcon } from "@chakra-ui/icons";
 export const App = () => {
   const query = new URLSearchParams(window.location.search);
   const [email, setEmail] = useState(query.get("email"));
-  const [mode, setMode] = useState("");
+  const [mode, setMode] = useState("user");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [amount, setAmount] = useState(0);
@@ -216,6 +216,10 @@ export const App = () => {
               Important Note: Your quiz balance is deducted only if you attend a
               quiz and it is not deducted if you skip any sessions.
             </Tag>
+            <Tag colorScheme="whatsapp" mt={"10px"}>
+              Your remaining quiz balance will be carried forward to the next
+              grade / class after this academic session ends
+            </Tag>
           </Box>
           <Box
             margin={"20px auto"}
@@ -233,7 +237,7 @@ export const App = () => {
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "400px", "400px"]}
+              minHeight={["auto", "auto", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -464,7 +468,7 @@ export const App = () => {
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "400px", "400px"]}
+              minHeight={["auto", "auto", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -614,7 +618,7 @@ export const App = () => {
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "400px", "400px"]}
+              minHeight={["auto", "auto", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -792,7 +796,7 @@ export const App = () => {
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "400px", "400px"]}
+              minHeight={["auto", "auto", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -1021,9 +1025,9 @@ export const App = () => {
             textAlign={"center"}
             ref={ref}
             border={"1px solid #ccc"}
-            width={["95%", "95%", "40%", "40%"]}
-            minHeight={["auto", "auto", "400px", "400px"]}
-            padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
+            width={["95%", "95%", "50%", "50%"]}
+            minHeight={["auto", "auto", "100%", "100%"]}
+            padding={["1rem", "1rem", "1rem", "1rem", "2rem 2rem 1rem 2rem"]}
             borderRadius={"20px"}
             transition={"0.5s ease"}
             _hover={{
@@ -1055,7 +1059,7 @@ export const App = () => {
             />
             <Button
               margin={"10px auto"}
-              width={["100%", "100%", "50%", "50%"]}
+              width={"100%"}
               background={"#4E47E5"}
               color={"white"}
               border={"2px solid transparent"}
@@ -1070,7 +1074,6 @@ export const App = () => {
                 border: "2px solid #4E47E5",
                 boxShadow: "0 0 0 5px rgb(78 71 229 / 30%)",
               }}
-              marginBottom={["0", "0", "25px", "25px"]}
             >
               Invite a Cousin / Friend
             </Button>
