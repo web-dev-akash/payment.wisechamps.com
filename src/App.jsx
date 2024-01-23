@@ -181,7 +181,7 @@ export const App = () => {
             fontSize={["12px", "12px", "14px", "12px", "14px"]}
             onClick={handleScheduleBtnClick}
           >
-            Schedule
+            Quiz Schedule
           </Button>
         </Box>
         <Box
