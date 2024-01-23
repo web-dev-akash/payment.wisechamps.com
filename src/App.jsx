@@ -14,13 +14,21 @@ import {
   AccordionPanel,
   Box,
   Button,
-  Code,
   Heading,
   Image,
   List,
   ListItem,
   Tag,
   Text,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 
@@ -33,6 +41,7 @@ export const App = () => {
   const [amount, setAmount] = useState(0);
   const [user, setUser] = useState({});
   const ref = useRef(null);
+  const refSchedule = useRef(null);
 
   const emailRegex = new RegExp(
     /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
@@ -93,6 +102,10 @@ export const App = () => {
 
   const handleBonusBtnClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScheduleBtnClick = () => {
+    refSchedule.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -157,6 +170,20 @@ export const App = () => {
     return (
       <>
         <Header />
+        <Box position={"absolute"} top={"15px"} right={"20px"}>
+          <Button
+            border={"1px solid #4e47e5"}
+            background={"none"}
+            color="#4e47e5"
+            width={"unset"}
+            height={"unset"}
+            margin={"15px 0"}
+            fontSize={["12px", "12px", "14px", "12px", "14px"]}
+            onClick={handleScheduleBtnClick}
+          >
+            Schedule
+          </Button>
+        </Box>
         <Box
           minHeight={["auto", "auto", "100vh", "100vh"]}
           display={"flex"}
@@ -211,6 +238,10 @@ export const App = () => {
             margin={"unset auto"}
             width={["90%", "90%", "100%", "100%"]}
             textAlign={"center"}
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"center"}
+            alignItems={"center"}
           >
             <Tag colorScheme="red" textAlign={"center"}>
               Important Note: Your quiz balance is deducted only if you attend a
@@ -231,13 +262,15 @@ export const App = () => {
               "repeat(2, 1fr)",
               "repeat(2, 1fr)",
               "repeat(2, 1fr)",
+              "repeat(3, 1fr)",
+              "repeat(3, 1fr)",
             ]}
             gap={5}
           >
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "100%", "100%"]}
+              minHeight={["auto", "100%", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -468,7 +501,7 @@ export const App = () => {
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "100%", "100%"]}
+              minHeight={["auto", "100%", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -618,7 +651,7 @@ export const App = () => {
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "100%", "100%"]}
+              minHeight={["auto", "100%", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -796,7 +829,7 @@ export const App = () => {
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
-              minHeight={["auto", "auto", "100%", "100%"]}
+              minHeight={["auto", "100%", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
               borderRadius={"20px"}
               transition={"0.5s ease"}
@@ -1016,67 +1049,140 @@ export const App = () => {
                 </ListItem>
               </List>
             </Box>
-          </Box>
 
-          {/* ----------------------------Bonus---------------------------- */}
+            {/* ----------------------------Bonus---------------------------- */}
 
-          <Box
-            marginBottom={"20px"}
-            textAlign={"center"}
-            ref={ref}
-            border={"1px solid #ccc"}
-            width={["95%", "95%", "50%", "50%"]}
-            minHeight={["auto", "auto", "100%", "100%"]}
-            padding={["1rem", "1rem", "1rem", "1rem", "2rem 2rem 1rem 2rem"]}
-            borderRadius={"20px"}
-            transition={"0.5s ease"}
-            _hover={{
-              border: "1px solid #4F47E4",
-            }}
-          >
-            <Text fontSize={["18px", "18px", "18px", "20px"]} fontWeight={700}>
-              Bonus
-            </Text>
-
-            <Text
-              fontSize={["12px", "12px", "15px", "14px", "15px"]}
-              margin={"15px 0"}
-              color={"#59626F"}
-              fontWeight={"bold"}
-            >
-              When your friend or cousin that you have invited attends 5 free
-              sessions with us. You are also gifted a Rs 300 Amazon Voucher from
-              Wisechamps.
-            </Text>
-            <Image
-              maxWidth={"400px"}
-              width={"100%"}
-              margin={"10px auto"}
-              src={voucher}
-              alt="300 Amazon Voucher"
+            <Box
+              textAlign={"center"}
+              ref={ref}
               border={"1px solid #ccc"}
-              borderRadius={"10px"}
-            />
-            <Button
-              margin={"10px auto"}
               width={"100%"}
-              background={"#4E47E5"}
-              color={"white"}
-              border={"2px solid transparent"}
-              transition={"0.4s ease"}
-              onClick={() =>
-                (window.location.href = `https://wa.me?text=Hi!%20I%20am%20learning%20a%20lot%20through%20Wisechamps%20Final%20Exam%20Practice%20Sessions.%20These%20quizzes%20are%20FUN%20%26%20INTERESTING%20way%20of%20LEARNING%20regularly.%20%0A%0AI%20am%20sure%20this%20time%20I%20will%20Ace%20my%20final%20Math%20and%20Science%20Exams.%0A%0AWinners%20also%20get%20gifts!%20So%20Don%27t%20Miss%20out...%0A%0AClick%20here%20to%20register%20your%20name%20and%20participate%20in%20free%20sessions%20%F0%9F%91%87%0Ahttps%3A%2F%2Freferral.wisechamps.com%3FrefereeId%3D${user.phone}%20%0A%0ASee%20you%20there%20%F0%9F%92%A1`)
-              }
+              minHeight={["auto", "100%", "100%", "100%"]}
+              padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
+              borderRadius={"20px"}
+              transition={"0.5s ease"}
               _hover={{
-                outline: "none",
-                background: "white",
-                color: "#000",
-                border: "2px solid #4E47E5",
-                boxShadow: "0 0 0 5px rgb(78 71 229 / 30%)",
+                border: "1px solid #4F47E4",
               }}
             >
-              Invite a Cousin / Friend
-            </Button>
+              <Text
+                textAlign={"left"}
+                fontSize={["18px", "18px", "18px", "20px"]}
+                fontWeight={700}
+              >
+                Bonus
+              </Text>
+
+              <Text
+                textAlign={"left"}
+                fontSize={["12px", "12px", "15px", "14px", "15px"]}
+                margin={"15px 0"}
+                color={"#59626F"}
+                fontWeight={"bold"}
+              >
+                When your friend or cousin that you have invited attends 5 free
+                sessions with us. You are also gifted a Rs 300 Amazon Voucher
+                from Wisechamps.
+              </Text>
+              <Image
+                maxWidth={"400px"}
+                width={"100%"}
+                margin={"10px auto"}
+                src={voucher}
+                alt="300 Amazon Voucher"
+                border={"1px solid #ccc"}
+                borderRadius={"10px"}
+              />
+              <Button
+                margin={"10px auto"}
+                width={"100%"}
+                background={"#4E47E5"}
+                color={"white"}
+                border={"2px solid transparent"}
+                transition={"0.4s ease"}
+                onClick={() =>
+                  (window.location.href = `https://wa.me?text=Hi!%20I%20am%20learning%20a%20lot%20through%20Wisechamps%20Final%20Exam%20Practice%20Sessions.%20These%20quizzes%20are%20FUN%20%26%20INTERESTING%20way%20of%20LEARNING%20regularly.%20%0A%0AI%20am%20sure%20this%20time%20I%20will%20Ace%20my%20final%20Math%20and%20Science%20Exams.%0A%0AWinners%20also%20get%20gifts!%20So%20Don%27t%20Miss%20out...%0A%0AClick%20here%20to%20register%20your%20name%20and%20participate%20in%20free%20sessions%20%F0%9F%91%87%0Ahttps%3A%2F%2Freferral.wisechamps.com%3FrefereeId%3D${user.phone}%20%0A%0ASee%20you%20there%20%F0%9F%92%A1`)
+                }
+                _hover={{
+                  outline: "none",
+                  background: "white",
+                  color: "#000",
+                  border: "2px solid #4E47E5",
+                  boxShadow: "0 0 0 5px rgb(78 71 229 / 30%)",
+                }}
+              >
+                Invite a Cousin / Friend
+              </Button>
+            </Box>
+
+            {/* ----------------------------Schedule---------------------------- */}
+
+            <Box
+              ref={refSchedule}
+              border={"1px solid #ccc"}
+              width={"100%"}
+              minHeight={["auto", "100%", "100%", "100%"]}
+              padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
+              borderRadius={"20px"}
+              transition={"0.5s ease"}
+              _hover={{
+                border: "1px solid #4F47E4",
+              }}
+            >
+              <Text
+                textAlign={"left"}
+                fontSize={["18px", "18px", "18px", "20px"]}
+                fontWeight={700}
+              >
+                Schedule
+              </Text>
+
+              <Text
+                textAlign={"left"}
+                fontSize={["12px", "12px", "15px", "14px", "15px"]}
+                margin={"15px 0"}
+                color={"#59626F"}
+                fontWeight={"bold"}
+              >
+                Our Live Quiz Schedule.
+              </Text>
+              <TableContainer
+                width={"100%"}
+                borderRadius={"15px"}
+                border={"1px solid #4f46e4"}
+              >
+                <Table variant="simple">
+                  <Thead background={"#4f47e4"}>
+                    <Tr>
+                      <Th color={"#fff"} fontSize={"15px"}>
+                        Day
+                      </Th>
+                      <Th color={"#fff"} fontSize={"15px"}>
+                        Time
+                      </Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    <Tr>
+                      <Td>Thursday</Td>
+                      <Td>7PM</Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Friday</Td>
+                      <Td>7PM</Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Saturday</Td>
+                      <Td>7PM</Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Sunday</Td>
+                      <Td>11AM</Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
+              </TableContainer>
+            </Box>
           </Box>
         </Box>
       </>
