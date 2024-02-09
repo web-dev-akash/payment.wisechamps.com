@@ -6,7 +6,6 @@ import "animate.css";
 import voucher from "./assets/voucher.PNG";
 import { useEffect } from "react";
 import { Header } from "./components/Header";
-import plan from "./assets/1999.mp4";
 import {
   Accordion,
   AccordionButton,
@@ -1075,9 +1074,10 @@ export const App = () => {
                   controls
                 >
                   <source
-                    src={plan}
+                    src={
+                      "https://dl.dropboxusercontent.com/scl/fi/e53vun8139fg2d06bwumy/1999.mp4?rlkey=yoj3q20l89wrtzw9z5ihxq9q4&dl=0"
+                    }
                     type="video/mp4"
-                    style={{ borderRadius: "10px" }}
                   />
                 </video>
               </Box>
