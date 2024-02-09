@@ -247,7 +247,7 @@ export const App = () => {
               padding={"10px 2rem"}
               width={["95%", "95%", "unset", "unset"]}
             >
-              Welcome {user.Student_Name ? user.Student_Name : "Parents"}
+              Welcome {user.studentName ? user.studentName : "Parents"}
             </Text>
             <Tag
               fontWeight={"600"}
