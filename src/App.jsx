@@ -6,6 +6,7 @@ import "animate.css";
 import voucher from "./assets/voucher.PNG";
 import { useEffect } from "react";
 import { Header } from "./components/Header";
+import plan from "./assets/1999.mp4";
 import {
   Accordion,
   AccordionButton,
@@ -23,19 +24,18 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
+import Marquee from "react-fast-marquee";
 
 export const App = () => {
   const query = new URLSearchParams(window.location.search);
   const [email, setEmail] = useState(query.get("email"));
-  const [mode, setMode] = useState("");
+  const [mode, setMode] = useState("user");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [amount, setAmount] = useState(0);
@@ -169,8 +169,39 @@ export const App = () => {
   if (mode === "user") {
     return (
       <>
+        <Box
+          position={"absolute"}
+          top={0}
+          left={0}
+          margin={0}
+          padding={0}
+          width={"100%"}
+        >
+          <Marquee>
+            <Tag borderRadius={"0"} colorScheme="red">
+              Important Note: Your quiz balance is deducted only if you attend a
+              quiz and it is not deducted if you skip any sessions.
+            </Tag>
+            <Tag borderRadius={"0"} colorScheme="whatsapp">
+              Your remaining quiz balance will be carried forward to the next
+              grade / class after this academic session ends
+            </Tag>
+            <Tag borderRadius={"0"} colorScheme="red">
+              Important Note: Your quiz balance is deducted only if you attend a
+              quiz and it is not deducted if you skip any sessions.
+            </Tag>
+            <Tag borderRadius={"0"} colorScheme="whatsapp">
+              Your remaining quiz balance will be carried forward to the next
+              grade / class after this academic session ends
+            </Tag>
+          </Marquee>
+        </Box>
         <Header />
-        <Box position={"absolute"} top={"15px"} right={"20px"}>
+        <Box
+          position={"absolute"}
+          top={"25px"}
+          right={["20px", "20px", "50px", "50px"]}
+        >
           <Button
             border={"1px solid #4e47e5"}
             background={"none"}
@@ -233,25 +264,7 @@ export const App = () => {
               Your Quiz Balance : {user.credits ? user.credits : "0"}
             </Tag>
           </Box>
-          <Box
-            marginTop={"20px"}
-            margin={"unset auto"}
-            width={["90%", "90%", "100%", "100%"]}
-            textAlign={"center"}
-            display={"flex"}
-            flexDirection={"column"}
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <Tag colorScheme="red" textAlign={"center"}>
-              Important Note: Your quiz balance is deducted only if you attend a
-              quiz and it is not deducted if you skip any sessions.
-            </Tag>
-            <Tag colorScheme="whatsapp" mt={"10px"}>
-              Your remaining quiz balance will be carried forward to the next
-              grade / class after this academic session ends
-            </Tag>
-          </Box>
+
           <Box
             margin={"20px auto"}
             width={"95%"}
@@ -1048,6 +1061,26 @@ export const App = () => {
                   </b>
                 </ListItem>
               </List>
+
+              <Box mt={5}>
+                <video
+                  style={{
+                    borderRadius: "10px",
+                    maxHeight: "600px",
+                    margin: "auto",
+                  }}
+                  width={"100%"}
+                  height={"100%"}
+                  autoPlay
+                  controls
+                >
+                  <source
+                    src={plan}
+                    type="video/mp4"
+                    style={{ borderRadius: "10px" }}
+                  />
+                </video>
+              </Box>
             </Box>
 
             {/* ----------------------------Bonus---------------------------- */}
