@@ -34,7 +34,7 @@ import Marquee from "react-fast-marquee";
 export const App = () => {
   const query = new URLSearchParams(window.location.search);
   const [email, setEmail] = useState(query.get("email"));
-  const [mode, setMode] = useState("");
+  const [mode, setMode] = useState("user");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [amount, setAmount] = useState(0);
@@ -301,7 +301,7 @@ export const App = () => {
                   fontSize={["18px", "18px", "18px", "20px"]}
                   fontWeight={700}
                 >
-                  Add Free Quiz Balance
+                  Free Balance
                 </Text>
                 <Tag
                   colorScheme="whatsapp"
@@ -533,9 +533,9 @@ export const App = () => {
                 fontWeight={"700"}
                 marginBottom={["0px", "0px", "5px", "5px"]}
               >
-                ₹119{" "}
+                ₹199{" "}
                 <Text as={"span"} fontSize={"15px"}>
-                  /4 Quiz
+                  /5 Quiz
                 </Text>
               </Text>
               <Text
@@ -544,8 +544,8 @@ export const App = () => {
                 color={"#59626F"}
                 fontWeight={"bold"}
               >
-                Click on the button below to Pay ₹119 for 4 quizzes{" "}
-                <b>(Only ₹30 per quiz)</b>
+                Click on the button below to Pay ₹199 for 5 quizzes{" "}
+                <b>(Only ₹40 per quiz)</b>
               </Text>
               <Accordion
                 allowToggle
@@ -589,7 +589,7 @@ export const App = () => {
                         fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        <b>4 Quizzes (₹30 per quiz)</b>
+                        <b>5 Quizzes (₹40 per quiz)</b>
                       </ListItem>
                       <ListItem
                         display={"flex"}
@@ -625,7 +625,7 @@ export const App = () => {
                   boxShadow: "0 0 0 5px rgb(78 71 229 / 30%)",
                 }}
                 marginBottom={["0", "0", "25px", "25px"]}
-                onClick={() => handlePayment(email, "119")}
+                onClick={() => handlePayment(email, "199")}
               >
                 Click to Add Quiz Balance
               </Button>
@@ -641,7 +641,7 @@ export const App = () => {
                   fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  <b>4 Quizzes (₹30 per quiz)</b>
+                  <b>5 Quizzes (₹40 per quiz)</b>
                 </ListItem>
 
                 <ListItem
