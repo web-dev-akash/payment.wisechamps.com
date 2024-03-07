@@ -199,7 +199,7 @@ export const App = () => {
         <Box
           position={"absolute"}
           top={"25px"}
-          right={["20px", "20px", "50px", "50px"]}
+          right={["20px", "20px", "30px", "30px"]}
         >
           <Button
             border={"1px solid #4e47e5"}
@@ -207,11 +207,14 @@ export const App = () => {
             color="#4e47e5"
             width={"unset"}
             height={"unset"}
+            padding={"2px 8px"}
             margin={"15px 0"}
-            fontSize={["12px", "12px", "14px", "12px", "14px"]}
-            onClick={handleScheduleBtnClick}
+            fontSize={["12px", "12px", "12px", "12px", "14px"]}
+            onClick={() =>
+              window.open(`https://students.wisechamps.com?email=${email}`)
+            }
           >
-            Quiz Schedule
+            Dashboard
           </Button>
         </Box>
         <Box

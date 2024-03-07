@@ -7,7 +7,7 @@ export const Header = () => {
     <Box
       position={"absolute"}
       top={"30px"}
-      left={["20px", "20px", "50px", "50px"]}
+      left={["20px", "20px", "30px", "30px"]}
       className="animate__animated animate__fadeInLeft"
     >
       <img src={logo} alt="Wisechamps" width={"120px"} />
