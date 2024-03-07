@@ -685,7 +685,7 @@ export const App = () => {
               >
                 ₹499{" "}
                 <Text as={"span"} fontSize={"15px"}>
-                  /20 Quiz
+                  /25 Quiz
                 </Text>
               </Text>
               <Text
@@ -694,8 +694,8 @@ export const App = () => {
                 color={"#59626F"}
                 fontWeight={"bold"}
               >
-                Click on the button below to Pay ₹499 for 20 quizzes{" "}
-                <b>(Only ₹25 per quiz)</b> and stand a chance to participate in
+                Click on the button below to Pay ₹499 for 25 quizzes{" "}
+                <b>(Only ₹20 per quiz)</b> and stand a chance to participate in
                 our Quaterly contests and win prizes
               </Text>
 
@@ -741,7 +741,7 @@ export const App = () => {
                         fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        <b>20 Quizzes (₹25 per quiz)</b>
+                        <b>25 Quizzes (₹20 per quiz)</b>
                       </ListItem>
                       <ListItem
                         display={"flex"}
@@ -806,7 +806,7 @@ export const App = () => {
                   fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  <b>20 Quizzes (₹25 per quiz)</b>
+                  <b>25 Quizzes (₹20 per quiz)</b>
                 </ListItem>
                 <ListItem
                   display={"flex"}
