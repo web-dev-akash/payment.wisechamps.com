@@ -34,7 +34,7 @@ import Marquee from "react-fast-marquee";
 export const App = () => {
   const query = new URLSearchParams(window.location.search);
   const [email, setEmail] = useState(query.get("email"));
-  const [mode, setMode] = useState("");
+  const [mode, setMode] = useState("user");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [amount, setAmount] = useState(0);
@@ -217,56 +217,55 @@ export const App = () => {
             Dashboard
           </Button>
         </Box>
+
         <Box
-          minHeight={["auto", "auto", "100vh", "100vh"]}
+          pt={["75px", "75px", "75px", "80px"]}
+          width={["100%", "100%", "95%", "95%"]}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          flexDir={["column", "column", "row", "row"]}
+          gap={[4, 4, 0, 0]}
+          margin={"0 auto"}
+        >
+          <Text
+            fontSize={"15px"}
+            fontWeight={"600"}
+            bg={"transparent"}
+            color={"#4F47E4"}
+            border={"1px solid #4F47E4"}
+            borderRadius={"8px"}
+            display={"flex"}
+            justifyContent={"center"}
+            textAlign={"center"}
+            alignItems={"center"}
+            padding={"10px 2rem"}
+            width={["95%", "95%", "unset", "unset"]}
+          >
+            Welcome {user.studentName || "Parents"}
+          </Text>
+          <Tag
+            fontWeight={"600"}
+            bg={"transparent"}
+            color={"#4F47E4"}
+            border={"1px solid #4F47E4"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            padding={"10px 2rem"}
+            width={["95%", "95%", "unset", "unset"]}
+            fontSize={"15px"}
+          >
+            Your Quiz Balance : {user.credits ? user.credits : "0"}
+          </Tag>
+        </Box>
+        <Box
+          minHeight={["auto", "auto", "80vh", "75vh"]}
           display={"flex"}
           justifyContent={"center"}
           flexDirection={"column"}
           alignItems={"center"}
-          padding={["5rem 0 1rem 0", "5rem 0 1rem 0", "5rem 0 1rem 0", "0"]}
         >
-          <Box
-            margin={["0px", "0px", "60px 0 0 0", "75px 0 0 0"]}
-            width={"95%"}
-            height={"auto"}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-            flexDir={["column", "column", "row", "row"]}
-            gap={[4, 4, 0, 0]}
-          >
-            <Text
-              fontSize={["18px", "18px", "18px", "15px", "18px"]}
-              fontWeight={"600"}
-              bg={"transparent"}
-              color={"#4F47E4"}
-              border={"1px solid #4F47E4"}
-              borderRadius={"8px"}
-              display={"flex"}
-              justifyContent={"center"}
-              textAlign={"center"}
-              alignItems={"center"}
-              padding={"10px 2rem"}
-              width={["95%", "95%", "unset", "unset"]}
-            >
-              Welcome {user.studentName ? user.studentName : "Parents"}
-            </Text>
-            <Tag
-              fontWeight={"600"}
-              bg={"transparent"}
-              color={"#4F47E4"}
-              border={"1px solid #4F47E4"}
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              padding={"10px 2rem"}
-              width={["95%", "95%", "unset", "unset"]}
-              fontSize={["18px", "18px", "25px", "18px", "25px"]}
-            >
-              Your Quiz Balance : {user.credits ? user.credits : "0"}
-            </Tag>
-          </Box>
-
           <Box
             margin={"20px auto"}
             width={"95%"}
@@ -274,16 +273,17 @@ export const App = () => {
             placeItems={"center"}
             gridTemplateColumns={[
               "repeat(1, 1fr)",
-              "repeat(2, 1fr)",
+              "repeat(1, 1fr)",
               "repeat(2, 1fr)",
               "repeat(2, 1fr)",
               "repeat(3, 1fr)",
               "repeat(3, 1fr)",
             ]}
             gap={5}
+            maxWidth={["500px", "500px", "1000px", "1100px", "1500px"]}
           >
-            <Box
-              border={"1px solid #ccc"}
+            {/* <Box
+              border={"1px solid red"}
               width={"100%"}
               minHeight={["auto", "100%", "100%", "100%"]}
               padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
@@ -512,7 +512,7 @@ export const App = () => {
                   </b>
                 </ListItem>
               </List>
-            </Box>
+            </Box> */}
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
@@ -548,7 +548,9 @@ export const App = () => {
                 fontWeight={"bold"}
               >
                 Click on the button below to Pay ₹199 for 5 quizzes{" "}
-                <b>(Only ₹40 per quiz)</b>
+                <Tag size={"sm"} colorScheme="purple">
+                  <b>(Only ₹40 per quiz)</b>
+                </Tag>
               </Text>
               <Accordion
                 allowToggle
@@ -698,8 +700,11 @@ export const App = () => {
                 fontWeight={"bold"}
               >
                 Click on the button below to Pay ₹499 for 25 quizzes{" "}
-                <b>(Only ₹20 per quiz)</b> and stand a chance to participate in
-                our Quaterly contests and win prizes
+                <Tag size={"sm"} colorScheme="purple">
+                  <b>(Only ₹20 per quiz)</b>
+                </Tag>
+                and stand a chance to participate in our Quaterly contests and
+                win prizes
               </Text>
 
               <Accordion
@@ -1064,7 +1069,7 @@ export const App = () => {
                 </ListItem>
               </List>
 
-              <Box mt={5}>
+              {/* <Box mt={5}>
                 <video
                   style={{
                     borderRadius: "10px",
@@ -1083,12 +1088,12 @@ export const App = () => {
                     type="video/mp4"
                   />
                 </video>
-              </Box>
+              </Box> */}
             </Box>
 
             {/* ----------------------------Bonus---------------------------- */}
 
-            <Box
+            {/* <Box
               textAlign={"center"}
               ref={ref}
               border={"1px solid #ccc"}
@@ -1149,11 +1154,11 @@ export const App = () => {
               >
                 Invite a Cousin / Friend
               </Button>
-            </Box>
+            </Box> */}
 
             {/* ----------------------------Schedule---------------------------- */}
 
-            <Box
+            {/* <Box
               ref={refSchedule}
               border={"1px solid #ccc"}
               width={"100%"}
@@ -1218,7 +1223,7 @@ export const App = () => {
                   </Tbody>
                 </Table>
               </TableContainer>
-            </Box>
+            </Box> */}
           </Box>
         </Box>
       </>
