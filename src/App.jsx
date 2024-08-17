@@ -42,10 +42,7 @@ export const App = () => {
   const ref = useRef(null);
   const refSchedule = useRef(null);
 
-  const emailRegex = new RegExp(
-    /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
-    "gm"
-  );
+  const emailRegex = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -60,7 +57,6 @@ export const App = () => {
   const handleClick = async (emailParam) => {
     if (!emailRegex.test(emailParam)) {
       alert("Please Enter a Valid Email");
-      window.location.reload();
       return;
     }
     try {
@@ -860,8 +856,8 @@ export const App = () => {
                 <Tag size={"sm"} colorScheme="purple">
                   <b>(Only ₹15 per quiz)</b>
                 </Tag>
-                and stand a chance to participate in our Quaterly contests and
-                win prizes
+                {/* and stand a chance to participate in our Quaterly contests and
+                win prizes */}
               </Text>
               <Accordion
                 allowToggle
@@ -1058,8 +1054,8 @@ export const App = () => {
                 <Tag size={"sm"} colorScheme="purple" fontWeight={700}>
                   (Only ₹10 per quiz)
                 </Tag>{" "}
-                and stand a chance to participate in our annual contests and win
-                Mega Prizes
+                {/* and stand a chance to participate in our annual contests and win
+                Mega Prizes */}
               </Text>
 
               <Accordion
