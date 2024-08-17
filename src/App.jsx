@@ -414,7 +414,7 @@ export const App = () => {
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />
                         <b>
-                          Validity : Use this quiz balance anytime in the next 3
+                          Validity : 3
                           years
                         </b>
                       </ListItem>
@@ -508,12 +508,12 @@ export const App = () => {
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />
                   <b>
-                    Validity : Use this quiz balance anytime in the next 3 years
+                    Validity : 3 years
                   </b>
                 </ListItem>
               </List>
             </Box> */}
-            <Box
+            {/* <Box
               border={"1px solid #ccc"}
               width={"100%"}
               minHeight={["auto", "100%", "100%", "100%"]}
@@ -607,7 +607,7 @@ export const App = () => {
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                         <b>
-                          Validity : Use this quiz balance anytime in the next
+                          Validity :
                           30 Days
                         </b>
                       </ListItem>
@@ -660,11 +660,11 @@ export const App = () => {
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
                   <b>
-                    Validity : Use this quiz balance anytime in the next 30 Days
+                    Validity : 30 Days
                   </b>
                 </ListItem>
               </List>
-            </Box>
+            </Box> */}
             <Box
               border={"1px solid #ccc"}
               width={"100%"}
@@ -681,7 +681,7 @@ export const App = () => {
                 fontWeight={700}
                 marginBottom={["0px", "0px", "10px", "10px"]}
               >
-                Academic Advancement
+                Beginner's Package
               </Text>
               <Text
                 fontSize={["30px", "30px", "35px", "35px", "45px"]}
@@ -703,8 +703,6 @@ export const App = () => {
                 <Tag size={"sm"} colorScheme="purple">
                   <b>(Only ₹20 per quiz)</b>
                 </Tag>
-                and stand a chance to participate in our Quaterly contests and
-                win prizes
               </Text>
 
               <Accordion
@@ -761,23 +759,7 @@ export const App = () => {
                         fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        Stand a chance to participate in our Quaterly contests
-                        and win prizes
-                      </ListItem>
-                      <ListItem
-                        display={"flex"}
-                        alignItems={"center"}
-                        gap={5}
-                        marginBottom={"10px"}
-                        fontSize={["12px", "12px", "14px", "14px"]}
-                        color={"#59626F"}
-                        fontWeight={"bold"}
-                      >
-                        <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        <b>
-                          Validity : Use this quiz balance anytime in the next 6
-                          months
-                        </b>
+                        <b>Validity : 6 months</b>
                       </ListItem>
                     </List>
                   </AccordionPanel>
@@ -825,10 +807,156 @@ export const App = () => {
                   color={"#59626F"}
                   fontWeight={"bold"}
                 >
-                  <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> Stand
-                  a chance to participate in our Quaterly contests and win
-                  prizes
+                  <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
+                  <b>Validity : 6 months</b>
                 </ListItem>
+              </List>
+            </Box>
+            <Box
+              border={"1px solid #ccc"}
+              width={"100%"}
+              minHeight={["auto", "100%", "100%", "100%"]}
+              padding={["1rem", "1rem", "1rem", "1rem", "2rem"]}
+              borderRadius={"20px"}
+              transition={"0.5s ease"}
+              _hover={{
+                border: "1px solid #4F47E4",
+              }}
+            >
+              <Text
+                fontSize={["18px", "18px", "18px", "20px"]}
+                fontWeight={700}
+                marginBottom={["0px", "0px", "10px", "10px"]}
+              >
+                Academic Advancement
+              </Text>
+              <Box>
+                <Text
+                  fontSize={["30px", "30px", "35px", "35px", "45px"]}
+                  fontWeight={"700"}
+                  marginBottom={["0px", "0px", "5px", "5px"]}
+                >
+                  <Text
+                    as={"span"}
+                    opacity={0.6}
+                    textDecoration={"line-through"}
+                    fontSize={["20px", "20px", "25px", "25px", "30px"]}
+                  >
+                    ₹1350{" "}
+                  </Text>
+                  ₹999{" "}
+                  <Text as={"span"} fontSize={"15px"}>
+                    /67 Quiz
+                  </Text>
+                </Text>
+              </Box>
+              <Text
+                fontSize={["12px", "12px", "15px", "12px", "15px"]}
+                marginBottom={["10px", "10px", "25px", "25px"]}
+                color={"#59626F"}
+                fontWeight={"bold"}
+              >
+                Click on the button below to Pay ₹999 for 67 quizzes{" "}
+                <Tag size={"sm"} colorScheme="purple">
+                  <b>(Only ₹15 per quiz)</b>
+                </Tag>
+                and stand a chance to participate in our Quaterly contests and
+                win prizes
+              </Text>
+              <Accordion
+                allowToggle
+                display={["block", "block", "none", "none"]}
+                border={"1px solid #a4b5fc"}
+                borderRadius={"10px"}
+                outline={"none"}
+                marginBottom={["15px", "15px", "35px", "35px"]}
+              >
+                <AccordionItem border={"none"} borderRadius={"10px"}>
+                  <h2
+                    style={{
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <AccordionButton borderRadius={"10px"}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        borderRadius={"10px"}
+                      >
+                        Benefits
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel
+                    pb={4}
+                    borderRadius={"10px"}
+                    marginTop={"10px"}
+                  >
+                    <List>
+                      <ListItem
+                        display={"flex"}
+                        alignItems={"center"}
+                        gap={5}
+                        marginBottom={"10px"}
+                        fontSize={["12px", "12px", "14px", "14px"]}
+                        color={"#59626F"}
+                        fontWeight={"bold"}
+                      >
+                        <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
+                        <b>67 Quizzes (₹15 per quiz)</b>
+                      </ListItem>
+                      <ListItem
+                        display={"flex"}
+                        alignItems={"center"}
+                        gap={5}
+                        marginBottom={"10px"}
+                        fontSize={["12px", "12px", "14px", "14px"]}
+                        color={"#59626F"}
+                        fontWeight={"bold"}
+                      >
+                        <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
+                        Stand a chance to participate in our Quaterly contests
+                        and win prizes
+                      </ListItem>
+                      <ListItem
+                        display={"flex"}
+                        alignItems={"center"}
+                        gap={5}
+                        marginBottom={"10px"}
+                        fontSize={["12px", "12px", "14px", "14px"]}
+                        color={"#59626F"}
+                        fontWeight={"bold"}
+                      >
+                        <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
+                        <b>Validity : 1 year</b>
+                      </ListItem>
+                    </List>
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+
+              <Button
+                width={"100%"}
+                background={"#4E47E5"}
+                color={"white"}
+                border={"2px solid transparent"}
+                transition={"0.4s ease"}
+                _hover={{
+                  outline: "none",
+                  background: "white",
+                  color: "#000",
+                  border: "2px solid #4E47E5",
+                  boxShadow: "0 0 0 5px rgb(78 71 229 / 30%)",
+                }}
+                marginBottom={["0", "0", "25px", "25px"]}
+                onClick={() => handlePayment(email, "999")}
+              >
+                Click to Add Quiz Balance
+              </Button>
+
+              <List display={["none", "none", "block", "block"]}>
                 <ListItem
                   display={"flex"}
                   alignItems={"center"}
@@ -839,10 +967,34 @@ export const App = () => {
                   fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  <b>
-                    Validity : Use this quiz balance anytime in the next 6
-                    months
-                  </b>
+                  <b>67 Quizzes (₹15 per quiz)</b>
+                </ListItem>
+
+                <ListItem
+                  display={"flex"}
+                  alignItems={"center"}
+                  gap={5}
+                  marginBottom={"10px"}
+                  fontSize={["12px", "12px", "14px", "14px"]}
+                  color={"#59626F"}
+                  fontWeight={"bold"}
+                >
+                  <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} /> Stand
+                  a chance to participate in our Quaterly contests and win
+                  prizes
+                </ListItem>
+
+                <ListItem
+                  display={"flex"}
+                  alignItems={"center"}
+                  gap={5}
+                  marginBottom={"10px"}
+                  fontSize={["12px", "12px", "14px", "14px"]}
+                  color={"#59626F"}
+                  fontWeight={"bold"}
+                >
+                  <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
+                  <b>Validity : 1 year</b>
                 </ListItem>
               </List>
             </Box>
@@ -883,6 +1035,14 @@ export const App = () => {
                 fontWeight={"700"}
                 marginBottom={["0px", "0px", "5px", "5px"]}
               >
+                <Text
+                  as={"span"}
+                  opacity={0.6}
+                  textDecoration={"line-through"}
+                  fontSize={["20px", "20px", "25px", "25px", "30px"]}
+                >
+                  ₹3999{" "}
+                </Text>
                 ₹1999{" "}
                 <Text as={"span"} fontSize={"15px"}>
                   /200 Quiz
@@ -895,16 +1055,9 @@ export const App = () => {
                 fontWeight={"bold"}
               >
                 Click on the button below to Pay ₹1999 for 200 quizzes{" "}
-                <Text
-                  as={"span"}
-                  background={"#E9D8FD"}
-                  padding={"2px 5px"}
-                  borderRadius={"5px"}
-                  color={"#58478A"}
-                  whiteSpace={"nowrap"}
-                >
+                <Tag size={"sm"} colorScheme="purple" fontWeight={700}>
                   (Only ₹10 per quiz)
-                </Text>{" "}
+                </Tag>{" "}
                 and stand a chance to participate in our annual contests and win
                 Mega Prizes
               </Text>
@@ -987,10 +1140,7 @@ export const App = () => {
                         fontWeight={"bold"}
                       >
                         <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                        <b>
-                          Validity : Use this quiz balance anytime in the next 3
-                          years
-                        </b>
+                        <b>Validity : 3 years</b>
                       </ListItem>
                     </List>
                   </AccordionPanel>
@@ -1063,9 +1213,7 @@ export const App = () => {
                   fontWeight={"bold"}
                 >
                   <CheckCircleIcon fontSize={"18px"} color={"#4E47E5"} />{" "}
-                  <b>
-                    Validity : Use this quiz balance anytime in the next 3 years
-                  </b>
+                  <b>Validity : 3 years</b>
                 </ListItem>
               </List>
 
