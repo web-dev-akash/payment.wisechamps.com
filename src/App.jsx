@@ -256,13 +256,23 @@ export const App = () => {
           </Tag>
         </Box>
         <Box
-          minHeight={["auto", "auto", "80vh", "75vh"]}
+          minHeight={["50vh", "50vh", "80vh", "75vh"]}
           display={"flex"}
           justifyContent={"center"}
           flexDirection={"column"}
           alignItems={"center"}
         >
-          <Box
+          <Text
+            textAlign={"center"}
+            margin={"0 auto"}
+            fontSize={"45px"}
+            maxWidth={"250px"}
+            fontWeight={800}
+            opacity={0.5}
+          >
+            No Plans Available
+          </Text>
+          {/*<Box
             margin={"20px auto"}
             width={"95%"}
             display={"grid"}
@@ -278,7 +288,7 @@ export const App = () => {
             gap={5}
             maxWidth={["500px", "500px", "1000px", "1100px", "1500px"]}
           >
-            {/* <Box
+             <Box
               border={"1px solid red"}
               width={"100%"}
               minHeight={["auto", "100%", "100%", "100%"]}
@@ -509,7 +519,7 @@ export const App = () => {
                 </ListItem>
               </List>
             </Box> */}
-            {/* <Box
+          {/* <Box
               border={"1px solid #ccc"}
               width={"100%"}
               minHeight={["auto", "100%", "100%", "100%"]}
@@ -661,7 +671,9 @@ export const App = () => {
                 </ListItem>
               </List>
             </Box> */}
-            <Box
+
+          {/* ------------Plans & Pricing------------ */}
+          {/* <Box
               border={"1px solid #ccc"}
               width={"100%"}
               minHeight={["auto", "100%", "100%", "100%"]}
@@ -857,7 +869,7 @@ export const App = () => {
                   <b>(Only ₹15 per quiz)</b>
                 </Tag>
                 {/* and stand a chance to participate in our Quaterly contests and
-                win prizes */}
+                win prizes 
               </Text>
               <Accordion
                 allowToggle
@@ -1055,7 +1067,7 @@ export const App = () => {
                   (Only ₹10 per quiz)
                 </Tag>{" "}
                 {/* and stand a chance to participate in our annual contests and win
-                Mega Prizes */}
+                Mega Prizes 
               </Text>
 
               <Accordion
@@ -1232,12 +1244,12 @@ export const App = () => {
                     type="video/mp4"
                   />
                 </video>
-              </Box> */}
-            </Box>
+              </Box> 
+            </Box> */}
 
-            {/* ----------------------------Bonus---------------------------- */}
+          {/* ----------------------------Bonus---------------------------- */}
 
-            {/* <Box
+          {/* <Box
               textAlign={"center"}
               ref={ref}
               border={"1px solid #ccc"}
@@ -1300,9 +1312,9 @@ export const App = () => {
               </Button>
             </Box> */}
 
-            {/* ----------------------------Schedule---------------------------- */}
+          {/* ----------------------------Schedule---------------------------- */}
 
-            {/* <Box
+          {/* <Box
               ref={refSchedule}
               border={"1px solid #ccc"}
               width={"100%"}
@@ -1367,8 +1379,8 @@ export const App = () => {
                   </Tbody>
                 </Table>
               </TableContainer>
-            </Box> */}
-          </Box>
+            </Box> 
+          </Box>*/}
         </Box>
       </>
     );
